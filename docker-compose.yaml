@@ -2,8 +2,6 @@ version: "3"
 services:
     micro-orders:
         build: ./backend/services/orders
-        ports:
-            - "6501:6501"
         environment:
             - PORT=6501
             - HOST=micro-orders
@@ -12,8 +10,6 @@ services:
 
     micro-products:
         build: ./backend/services/products
-        ports:
-            - "6502:6502"
         environment:
             - PORT=6502
             - HOST=micro-products
@@ -22,8 +18,6 @@ services:
 
     micro-shops:
         build: ./backend/services/shops
-        ports:
-            - "6503:6503"
         environment:
             - PORT=6503
             - HOST=micro-shops
@@ -32,8 +26,6 @@ services:
 
     micro-transactions:
         build: ./backend/services/transactions
-        ports:
-            - "6504:6504"
         environment:
             - PORT=6504
             - HOST=micro-transactions
@@ -42,8 +34,6 @@ services:
 
     micro-users:
         build: ./backend/services/users
-        ports:
-            - "6505:6505"
         environment:
             - PORT=6505
             - HOST=micro-users
@@ -52,8 +42,6 @@ services:
 
     frontend-web:
         build: ./frontend/web
-        ports:
-            - "3000:3000"
         environment:
             - PORT=3000
             - HOST=frontend-web
