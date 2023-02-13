@@ -1,0 +1,35 @@
+version: "3"
+services:
+    micro-users:
+        build: ./backend/services/users
+        ports:
+            - "6501:6501"
+        environment:
+            - PORT=6501
+            - HOST=micro-users
+        networks:
+            - backend
+
+    frontend-web:
+        build: ./frontend/web
+        ports:
+            - "3000:3000"
+        environment:
+            - PORT=3000
+            - HOST=frontend-web
+        networks:
+            - frontend
+
+    gateway:
+        build: ./gateway
+        ports:
+            - "80:80"
+        networks:
+            - frontend
+            - backend
+
+networks:
+    frontend:
+        driver: bridge
+    backend:
+        driver: bridge
