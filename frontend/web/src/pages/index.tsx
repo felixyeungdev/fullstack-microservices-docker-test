@@ -26,19 +26,19 @@ const gradients = [
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen w-screen items-center justify-center p-8">
-      <section className="w-full max-w-lg">
-        <h1 className="mb-4 text-5xl font-bold">Microservices</h1>
-        <div className="flex flex-col flex-wrap gap-3">
-          {microservices.map((microservice, i) => (
-            <MicroservicePing
-              key={microservice}
-              microservice={microservice}
-              className={gradients[i]}
-            />
-          ))}
-        </div>
-      </section>
+    <div className="h-full min-h-screen w-screen">
+      <h1 className="mt-8 text-center text-5xl font-bold tracking-wide">
+        Microservices
+      </h1>
+      <div className="mx-auto flex max-w-lg flex-col gap-3 p-3">
+        {microservices.map((microservice, i) => (
+          <MicroservicePing
+            key={microservice}
+            microservice={microservice}
+            className={gradients[i]}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -66,9 +66,16 @@ const MicroservicePing: FC<{
   );
 
   return (
-    <div className={clsx("py-3shadow-lg rounded-lg px-6 py-4", className)}>
+    <div
+      className={clsx(
+        "flex flex-col rounded-lg px-6 py-4 shadow-lg",
+        className
+      )}
+    >
       <>
-        <h2 className="text-3xl font-bold">Microservice {microservice}</h2>
+        <h2 className="text-3xl font-bold tracking-wide">
+          Microservice {microservice}
+        </h2>
         <p>
           Endpoint:{" "}
           <Link href={endpoint} target="_blank">
@@ -86,7 +93,7 @@ const MicroservicePing: FC<{
 const Json: FC<{
   data: unknown;
 }> = ({ data }) => (
-  <pre className="rounded-md bg-slate-800 p-2 text-sm">
+  <pre className="max-w-full overflow-auto rounded-md bg-slate-800 p-2 text-sm">
     {JSON.stringify(data, null, 2)}
   </pre>
 );
