@@ -5,6 +5,9 @@ services:
     environment:
       - PORT=8000
       - HOST=micro-orders
+      - DEBUG=true
+    volumes:
+      - ./backend/services/orders:/service
     networks:
       - backend
 
@@ -13,6 +16,9 @@ services:
     environment:
       - PORT=8000
       - HOST=micro-products
+      - DEBUG=true
+    volumes:
+      - ./backend/services/products:/service
     networks:
       - backend
 
@@ -21,6 +27,9 @@ services:
     environment:
       - PORT=8000
       - HOST=micro-shops
+      - DEBUG=true
+    volumes:
+      - ./backend/services/shops:/service
     networks:
       - backend
 
@@ -29,6 +38,9 @@ services:
     environment:
       - PORT=8000
       - HOST=micro-transactions
+      - DEBUG=true
+    volumes:
+      - ./backend/services/transactions:/service
     networks:
       - backend
 
@@ -37,6 +49,9 @@ services:
     environment:
       - PORT=8000
       - HOST=micro-users
+      - DEBUG=true
+    volumes:
+      - ./backend/services/users:/service
     networks:
       - backend
 
@@ -45,14 +60,22 @@ services:
     environment:
       - PORT=8000
       - HOST=micro-restaurants
+      - DEBUG=true
+    volumes:
+      - ./backend/services/restaurants:/service
     networks:
       - backend
 
   frontend-web:
-    build: ./frontend/web
+    build:
+      context: ./frontend/web
+      dockerfile: Dockerfile.dev
     environment:
       - PORT=3000
       - HOST=frontend-web
+    volumes:
+      - ./frontend/web:/app
+      - /app/node_modules
     networks:
       - frontend
 
