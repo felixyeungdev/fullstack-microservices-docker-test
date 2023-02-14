@@ -1,11 +1,17 @@
-FROM python:3.9-alpine
-WORKDIR /service
+FROM node:18-alpine
+
+WORKDIR /app
+
+# install pnpm
+RUN npm install -g pnpm
 
 # install dependencies
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install
 
-# copy project
+# copy app
 COPY . .
+
+# serve app
 EXPOSE ${PORT}
-CMD [ "python", "main.py" ]
+CMD [ "pnpm", "start" ]
