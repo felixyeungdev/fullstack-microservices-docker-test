@@ -5,13 +5,23 @@ import type { Fetcher } from "swr";
 import useSWR from "swr";
 import clsx from "clsx";
 
-const microservices = ["orders", "products", "shops", "transactions", "users"];
+const microservices = [
+  "orders",
+  "products",
+  "shops",
+  "transactions",
+  "users",
+  "restaurants",
+];
+
 const gradients = [
   "bg-gradient-to-br text-white from-indigo-600 to-blue-600",
   "bg-gradient-to-br text-white from-green-600 to-teal-600",
   "bg-gradient-to-br text-white from-yellow-600 to-orange-600",
   "bg-gradient-to-br text-white from-red-600 to-pink-600",
   "bg-gradient-to-br text-white from-purple-600 to-indigo-600",
+  "bg-gradient-to-br text-white from-blue-600 to-green-600",
+  "bg-gradient-to-br text-white from-teal-600 to-yellow-600",
 ];
 
 const Home: NextPage = () => {

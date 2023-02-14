@@ -3,7 +3,7 @@ services:
     micro-orders:
         build: ./backend/services/orders
         environment:
-            - PORT=6501
+            - PORT=8000
             - HOST=micro-orders
         networks:
             - backend
@@ -11,7 +11,7 @@ services:
     micro-products:
         build: ./backend/services/products
         environment:
-            - PORT=6502
+            - PORT=8000
             - HOST=micro-products
         networks:
             - backend
@@ -19,7 +19,7 @@ services:
     micro-shops:
         build: ./backend/services/shops
         environment:
-            - PORT=6503
+            - PORT=8000
             - HOST=micro-shops
         networks:
             - backend
@@ -27,7 +27,7 @@ services:
     micro-transactions:
         build: ./backend/services/transactions
         environment:
-            - PORT=6504
+            - PORT=8000
             - HOST=micro-transactions
         networks:
             - backend
@@ -35,8 +35,16 @@ services:
     micro-users:
         build: ./backend/services/users
         environment:
-            - PORT=6505
+            - PORT=8000
             - HOST=micro-users
+        networks:
+            - backend
+
+    micro-restaurants:
+        build: ./backend/services/restaurants
+        environment:
+            - PORT=8000
+            - HOST=micro-restaurants
         networks:
             - backend
 
