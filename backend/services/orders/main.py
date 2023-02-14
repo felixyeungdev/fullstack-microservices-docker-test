@@ -11,7 +11,12 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"message": f"Hello World from {HOST}", "success": True}
+    return {
+        "message": f"Hello World from {HOST}",
+        "language": "Python",
+        "framework": "FastAPI",
+        "success": True
+    }
 
 
 if __name__ == "__main__":
